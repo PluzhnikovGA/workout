@@ -3,10 +3,10 @@ import dotenv from 'dotenv';
 import morgan from 'morgan';
 import 'colors';
 import path from 'path';
-import authRoutes from './app/auth/auth.routes.js';
-import userRoutes from './app/user/user.routes.js';
-import exerciseRoutes from './app/exercise/exercise.routes.js';
-import workoutRoutes from './app/workout/workout.routes.js';
+import authRouter from './app/auth/auth.router.js';
+import userRouter from './app/user/user.router.js';
+import exerciseRouter from './app/exercise/exercise.router.js';
+import workoutRouter from './app/workout/workout.router.js';
 import { prisma } from './app/prisma.js';
 import { errorHandler, notFound } from './app/middleware/error.middleware.js';
 
@@ -22,10 +22,10 @@ async function main() {
 
   app.use('/uploads', express.static(path.join(__dirname, '/uploads/')));
 
-  app.use('/api/auth', authRoutes);
-  app.use('/api/user', userRoutes);
-  app.use('/api/exercise', exerciseRoutes);
-  app.use('/api/workout', workoutRoutes);
+  app.use('/api/auth', authRouter);
+  app.use('/api/user', userRouter);
+  app.use('/api/exercise', exerciseRouter);
+  app.use('/api/workout', workoutRouter);
 
   app.use(notFound);
   app.use(errorHandler);
