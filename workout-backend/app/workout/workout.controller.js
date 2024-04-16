@@ -1,7 +1,6 @@
 import asyncHandler from 'express-async-handler';
 import { prisma } from '../prisma.js';
-
-const AVERAGE_EXERCISE_DURATION = 3.7;
+import { calculateMinutes } from '../utils/calculateMinutes.utils.js';
 
 // @desc    Get workout
 // @route 	PUT /api/workout/:id
@@ -17,7 +16,7 @@ export const getWorkout = asyncHandler(async (req, res) => {
       },
     });
 
-    const minutes = Math.ceil(workout.exercises.length * AVERAGE_EXERCISE_DURATION);
+    const minutes = calculateMinutes(workout.exercises.length);
 
     res.json({ ...workout, minutes });
   } catch (error) {
