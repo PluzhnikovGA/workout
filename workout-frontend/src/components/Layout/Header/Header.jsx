@@ -1,16 +1,21 @@
-import { useAuth } from '../../../hooks/useAuth'
+import { IoMdArrowBack } from 'react-icons/io';
+
+import { useAuth } from '../../../hooks/useAuth';
+
 import Hamburger from '../../Hamburger/Hamburger';
-import styles from './Header.module.scss'
-import { FiArrowLeft } from 'react-icons/fi'
+
+import styles from './Header.module.scss';
 
 export default function Header({ backLink }) {
-  /* TODO: React router useHistory*/
-  const { isAuth } = useAuth();
+	/* TODO: React router useHistory*/
+	const { isAuth } = useAuth();
 
-  return <div className={styles.header}>
-    <button onClick={() => {}}>
-      <FiArrowLeft color="#fff" />
-    </button>
-    <Hamburger />
-  </div>
+	return (
+		<div className={styles.header}>
+			<button onClick={() => {}}>
+				<IoMdArrowBack />
+			</button>
+			<Hamburger />
+		</div>
+	);
 }

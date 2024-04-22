@@ -6,19 +6,19 @@ import { prisma } from '../../prisma.js';
 // @route   PATCH /api/workout/log/complete/:id
 // @access  Private
 export const updateCompleteWorkoutLog = asyncHandler(async (req, res) => {
-  try {
-    const workoutLog = await prisma.workoutLog.update({
-      where: {
-        id: +req.params.id,
-      },
-      data: {
-        isCompleted: true,
-      },
-    });
+	try {
+		const workoutLog = await prisma.workoutLog.update({
+			where: {
+				id: +req.params.id
+			},
+			data: {
+				isCompleted: true
+			}
+		});
 
-    res.json(workoutLog);
-  } catch (error) {
-    res.status(404);
-    throw new Error('Workout log not found')
-  }
+		res.json(workoutLog);
+	} catch (error) {
+		res.status(404);
+		throw new Error('Workout log not found');
+	}
 });

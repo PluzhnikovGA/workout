@@ -1,16 +1,16 @@
-import asyncHandler from 'express-async-handler'
+import asyncHandler from 'express-async-handler';
 
-import { prisma } from '../prisma.js'
+import { prisma } from '../prisma.js';
 
 // @desc    Get exercises
 // @route   GET /api/exercise
 // @access  Private
 export const getExercises = asyncHandler(async (req, res) => {
 	const exercises = await prisma.exercise.findMany({
-    orderBy: {
-      createAt: 'desc',
-    },
-  });
+		orderBy: {
+			createAt: 'desc'
+		}
+	});
 	res.json(exercises);
 });
 
@@ -24,7 +24,7 @@ export const createNewExercise = asyncHandler(async (req, res) => {
 		data: {
 			name,
 			times,
-			iconPath,
+			iconPath
 		}
 	});
 
@@ -37,40 +37,39 @@ export const createNewExercise = asyncHandler(async (req, res) => {
 export const updateExercise = asyncHandler(async (req, res) => {
 	const { name, times, iconPath } = req.body;
 
-  try {
-    const exercise = await prisma.exercise.update({
-      where: {
-        id: +req.params.id
-      },
-      data: {
-        name,
-        times,
-        iconPath,
-      }
-    });
+	try {
+		const exercise = await prisma.exercise.update({
+			where: {
+				id: +req.params.id
+			},
+			data: {
+				name,
+				times,
+				iconPath
+			}
+		});
 
-    res.json(exercise);
-  } catch (error) {
-    res.status(404);
-    throw new Error('Exercise not found');
-  };
+		res.json(exercise);
+	} catch (error) {
+		res.status(404);
+		throw new Error('Exercise not found');
+	}
 });
 
 // @desc    Delete exercise
 // @route 	DELETE /api/exercise/:id
 // @access  Private
 export const deleteExercise = asyncHandler(async (req, res) => {
+	try {
+		await prisma.exercise.delete({
+			where: {
+				id: +req.params.id
+			}
+		});
 
-  try {
-    await prisma.exercise.delete({
-      where: {
-        id: +req.params.id,
-      },
-    });
-
-    res.json({message: 'Exercise deleted'});
-  } catch (error) {
-    res.status(404);
-    throw new Error('Exercise not found');
-  };
+		res.json({ message: 'Exercise deleted' });
+	} catch (error) {
+		res.status(404);
+		throw new Error('Exercise not found');
+	}
 });
