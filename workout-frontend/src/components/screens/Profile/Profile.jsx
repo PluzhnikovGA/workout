@@ -1,3 +1,5 @@
+import Layout from '../../Layout/Layout';
+
 export default function Profile() {
-	return <div>Profile</div>;
+	return <Layout>Profile</Layout>;
 }

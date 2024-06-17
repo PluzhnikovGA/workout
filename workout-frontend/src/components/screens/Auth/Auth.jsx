@@ -1,3 +1,5 @@
+import Layout from '../../Layout/Layout';
+
 export default function Auth() {
-	return <div>Auth</div>;
+	return <Layout>Auth</Layout>;
 }

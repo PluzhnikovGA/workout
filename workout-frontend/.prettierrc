@@ -7,7 +7,7 @@
   "jsxSingleQuote": true,
   "arrowParens": "avoid",
   "plugins": ["@trivago/prettier-plugin-sort-imports"],
-  "importOrder": ["<THIRD_PARTY_MODULES>", "/hooks/", "/screens/", "/components/", "^../(.*)", "^./(.*)"],
+  "importOrder": ["<THIRD_PARTY_MODULES>", "/ui/", "/hooks/", "/screens/", "/components/", "^../(.*)", "^./(.*)"],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
 }
