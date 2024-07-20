@@ -24,7 +24,7 @@ export default function Header({ backLink = '' }) {
 					<IoMdArrowBack />
 				</button>
 			) : (
-				<button onClick={() => navigate('/profile')}>
+				<button onClick={() => navigate(isAuth ? '/profile' : '/auth')}>
 					<SlUser />
 				</button>
 			)}

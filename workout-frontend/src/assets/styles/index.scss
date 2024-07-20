@@ -18,6 +18,9 @@
   &:focus {
     outline: none;
   };
+
+  font-family: $default-font;
+  letter-spacing: 0.7px;
 };
 
 *::-webkit-input-placeholder {
