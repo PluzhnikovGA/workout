@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import morgan from 'morgan';
 import 'colors';
 import path from 'path';
+import cors from 'cors';
 import authRouter from './app/auth/auth.router.js';
 import userRouter from './app/user/user.router.js';
 import exerciseRouter from './app/exercise/exercise.router.js';
@@ -18,6 +19,12 @@ const __dirname = path.resolve();
 async function main() {
   if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
+  app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  }));
+
   app.use(express.json());
 
   app.use('/uploads', express.static(path.join(__dirname, '/uploads/')));
@@ -30,7 +37,7 @@ async function main() {
   app.use(notFound);
   app.use(errorHandler);
 
-  const PORT = process.env.PORT || 6000;
+  const PORT = process.env.PORT || 3000;
 
   app.listen(
     PORT,

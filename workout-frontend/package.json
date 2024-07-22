@@ -12,7 +12,10 @@
   },
   "author": "Grigorii",
   "dependencies": {
+    "@tanstack/react-query": "4.22.0",
+    "axios": "^1.7.2",
     "clsx": "^2.1.0",
+    "js-cookie": "^3.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.52.1",
