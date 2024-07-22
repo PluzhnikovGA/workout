@@ -7,7 +7,7 @@ export const routes = [
 	{
 		path: '/',
 		component: Home,
-		isAuth: false
+		isAuth: true
 	},
 	{
 		path: '/auth',
@@ -22,6 +22,6 @@ export const routes = [
 	{
 		path: '/profile',
 		component: Profile,
-		isAuth: false
+		isAuth: true
 	}
 ];

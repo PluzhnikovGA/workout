@@ -1,5 +1,7 @@
 import cn from 'clsx';
 
+import useCheckToken from '../../hooks/useCheckToken';
+
 import Header from './Header/Header';
 import styles from './Layout.module.scss';
 
@@ -9,6 +11,8 @@ export default function Layout({
 	heading = '',
 	backLink = '/'
 }) {
+	useCheckToken();
+
 	return (
 		<section
 			className={cn(styles.wrapper, {

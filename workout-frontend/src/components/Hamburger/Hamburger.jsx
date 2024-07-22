@@ -14,7 +14,7 @@ export default function Hamburger() {
 			<button onClick={() => setIsShow(!isShow)}>
 				{isShow ? <IoClose /> : <CgMenuRight />}
 			</button>
-			<Menu isShow={isShow} />
+			<Menu isShow={isShow} setIsShow={setIsShow} />
 		</div>
 	);
 }

@@ -11,24 +11,26 @@ import styles from './Header.module.scss';
 export default function Header({ backLink = '' }) {
 	const { pathname } = useLocation();
 	const navigate = useNavigate();
+
 	const { isAuth } = useAuth();
 
 	return (
 		<div className={styles.header}>
-			{pathname != '/' ? (
-				<button
-					onClick={() => {
-						navigate(backLink || '/');
-					}}
-				>
-					<IoMdArrowBack />
-				</button>
-			) : (
-				<button onClick={() => navigate(isAuth ? '/profile' : '/auth')}>
-					<SlUser />
-				</button>
-			)}
-			<Hamburger />
+			{pathname !== '/auth' &&
+				(pathname !== '/' || !isAuth ? (
+					<button
+						onClick={() => {
+							navigate(isAuth ? backLink : '/auth');
+						}}
+					>
+						<IoMdArrowBack />
+					</button>
+				) : (
+					<button onClick={() => navigate('/profile')}>
+						<SlUser />
+					</button>
+				))}
+			{isAuth && <Hamburger />}
 		</div>
 	);
 }
