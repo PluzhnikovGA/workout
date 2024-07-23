@@ -10,13 +10,13 @@ import { menu } from '../menu.data';
 
 export default function Menu({ isShow, setIsShow }) {
 	const { setIsAuth } = useAuth();
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
 	const handlerLogout = () => {
 		Cookies.remove(TOKEN);
 		setIsShow(false);
 		setIsAuth(false);
-    navigate('/auth');
+		navigate('/auth');
 	};
 
 	return (
