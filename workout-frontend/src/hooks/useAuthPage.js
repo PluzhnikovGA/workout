@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
-import authService from '../services/auth.services';
+import authService from '../services/auth.service';
 
 import { useAuth } from './useAuth';
 

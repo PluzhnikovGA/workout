@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../../ui/Button/Button';
 
 import Layout from '../../Layout/Layout';
+import Statistics from '../Profile/Statistics/Statistics';
 
 import styles from './Home.module.scss';
-import Statistics from '../Profile/Statistics/Statistics';
 
 export default function Home() {
 	const navigate = useNavigate();
@@ -14,7 +14,7 @@ export default function Home() {
 		<Layout bgImage='/images/home-bg.jpg'>
 			<Button clickHandler={() => navigate('/new-workout')}>New</Button>
 			<h1 className={styles.heading}>EXERCISES FOR THE SHOULDERS</h1>
-      <Statistics />
+			<Statistics />
 		</Layout>
 	);
 }

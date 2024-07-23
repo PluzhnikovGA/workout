@@ -1,5 +1,6 @@
 import Auth from '../components/screens/Auth/Auth';
 import Home from '../components/screens/Home/Home';
+import NewExercise from '../components/screens/NewExercise/NewExercise';
 import NewWorkout from '../components/screens/NewWorkouts/NewWorkout';
 import Profile from '../components/screens/Profile/Profile';
 
@@ -22,6 +23,11 @@ export const routes = [
 	{
 		path: '/profile',
 		component: Profile,
+		isAuth: true
+	},
+	{
+		path: '/new-exercise',
+		component: NewExercise,
 		isAuth: true
 	}
 ];

@@ -39,25 +39,21 @@ export default function Profile() {
 					)}
 				</div>
 				<h1>{data?.email}</h1>
-        <Statistics />
+				<Statistics />
 			</div>
 			<div
 				className='wrapper-inner-page'
 				style={{ paddingLeft: 0, paddingRight: 0 }}
 			>
 				<div className={styles.before_after}>
-						<div>
-							<div className={styles.heading}>
-								Before
-							</div>
-							<img src='/images/before.jpg' draggable={false} />
-						</div>
-            <div>
-							<div className={styles.heading}>
-								After
-							</div>
-							<img src='/images/after.jpg' draggable={false} />
-						</div>
+					<div>
+						<div className={styles.heading}>Before</div>
+						<img src='/images/before.jpg' draggable={false} />
+					</div>
+					<div>
+						<div className={styles.heading}>After</div>
+						<img src='/images/after.jpg' draggable={false} />
+					</div>
 				</div>
 			</div>
 		</>
