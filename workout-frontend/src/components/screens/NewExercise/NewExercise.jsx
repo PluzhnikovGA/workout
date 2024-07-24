@@ -37,7 +37,7 @@ export default function NewExercise() {
 			/>
 			<div className='wrapper-inner-page'>
 				{isError && <Alert type='error' text={error.message} />}
-				{isSuccess && <Alert text='Exercise created' />}
+				{isSuccess && <Alert text='Exercise created successfully' />}
 				{isLoading && <Loader />}
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<Field

@@ -2,9 +2,9 @@ import { useMutation } from '@tanstack/react-query';
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
-import ExerciseService from '../services/exercise.service';
+import WorkoutService from '../services/workout.service';
 
-export default function useNewExercisePage() {
+export default function useNewWorkoutPage() {
 	const {
 		register,
 		handleSubmit,
@@ -16,17 +16,23 @@ export default function useNewExercisePage() {
 	});
 
 	const { mutate, isSuccess, isError, isLoading, error } = useMutation(
-		['createExercise'],
-		body => ExerciseService.create(body),
+		['createWorkout'],
+		body => WorkoutService.create(body),
 		{
 			onSuccess: () => {
-				reset();
+				reset({
+					name: '',
+					exerciseIds: []
+				});
 			}
 		}
 	);
 
 	const onSubmit = data => {
-		mutate(data);
+		mutate({
+			name: data.name,
+			exerciseIds: data.exerciseIds.map(ex => ex.value)
+		});
 	};
 
 	return useMemo(
