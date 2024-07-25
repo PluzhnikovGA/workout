@@ -2,7 +2,7 @@ import cn from 'clsx';
 
 import Header from '../../../Layout/Header/Header';
 import stylesLayout from '../../../Layout/Layout.module.scss';
-import styles from '../Workouts.module.scss';
+import styles from '../Workout.module.scss';
 
 export default function WorkoutHeader({ workoutLog, isSuccess }) {
 	return (

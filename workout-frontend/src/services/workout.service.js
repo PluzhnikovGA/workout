@@ -4,7 +4,7 @@ export const WORKOUT = '/workout';
 
 class WorkoutService {
 	async getAll() {
-		return await $axios.get(`${WORKOUT}/`);
+		return await $axios.get(`${WORKOUT}`);
 	}
 
 	async getById(id) {

@@ -7,8 +7,8 @@ import Loader from '../../ui/Loader/Loader';
 import WorkoutLogService from '../../../services/workoutLog.service';
 
 import ExerciseItem from './ExerciseItem/ExerciseItem';
+import styles from './Workout.module.scss';
 import WorkoutHeader from './WorkoutHeader/WorkoutHeader';
-import styles from './Workouts.module.scss';
 
 export default function Workout() {
 	const { id } = useParams();
@@ -29,22 +29,22 @@ export default function Workout() {
 				style={{ paddingLeft: 0, paddingRight: 0 }}
 			>
 				<div style={{ width: '90%', margin: '0 auto' }}></div>
+				{isLoading ? (
+					<Loader />
+				) : (
+					<div className={styles.wrapper}>
+						{workoutLog?.exerciseLogs?.map((exerciseLog, index) => (
+							<Fragment key={`${exerciseLog.id}`}>
+								<ExerciseItem exerciseLog={exerciseLog} />
+								{index % 2 !== 0 &&
+									index !== workoutLog.exerciseLogs.length - 1 && (
+										<div className={styles.line} />
+									)}
+							</Fragment>
+						))}
+					</div>
+				)}
 			</div>
-			{isLoading ? (
-				<Loader />
-			) : (
-				<div className={styles.wrapper}>
-					{workoutLog?.exerciseLogs?.map((exerciseLog, index) => (
-						<Fragment key={`${exerciseLog.id}`}>
-							<ExerciseItem exerciseLog={exerciseLog} />
-							{index % 2 !== 0 &&
-								index !== workoutLog.exerciseLogs.length - 1 && (
-									<div className={styles.line} />
-								)}
-						</Fragment>
-					))}
-				</div>
-			)}
 		</>
 	);
 }

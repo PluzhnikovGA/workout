@@ -1,7 +1,7 @@
 import cn from 'clsx';
 import { useNavigate } from 'react-router-dom';
 
-import styles from '../Workouts.module.scss';
+import styles from '../Workout.module.scss';
 
 export default function ExerciseItem({ exerciseLog }) {
 	const navigation = useNavigate();
