@@ -1,6 +1,6 @@
 import styles from '../Exercise.module.scss';
 
-const titles = ['Previous', 'Repeat & Weight', 'Completed'];
+const titles = ['Previous', 'Weight & Repeat', 'Completed'];
 
 export default function ExerciseTableHeader() {
 	return (

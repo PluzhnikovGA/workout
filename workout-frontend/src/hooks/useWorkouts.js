@@ -27,7 +27,6 @@ export default function useWorkouts() {
 		workoutId => WorkoutLogService.create(workoutId),
 		{
 			onSuccess({ data }) {
-				console.log('data', data);
 				navigate(`/workouts/${data.id}`);
 			}
 		}

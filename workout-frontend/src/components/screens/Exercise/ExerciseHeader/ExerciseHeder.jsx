@@ -12,7 +12,7 @@ export default function ExerciseHeader({ exerciseLog, isSuccess }) {
 		>
 			<Header
 				backLink={
-					isSuccess ? `/workouts/${exerciseLog.workoutLog}` : '/workouts'
+					isSuccess ? `/workouts/${exerciseLog.workoutLogId}` : '/workouts'
 				}
 			/>
 

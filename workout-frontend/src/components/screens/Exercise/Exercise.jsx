@@ -1,16 +1,27 @@
 import Alert from '../../ui/Alert/Alert';
 import Loader from '../../ui/Loader/Loader';
 
+import useCompleteLog from '../../../hooks/useCompleteLog';
 import useExerciseLog from '../../../hooks/useExerciseLog';
 
 import styles from './Exercise.module.scss';
+import ExerciseError from './ExerciseError/ExerciseError';
 import ExerciseHeader from './ExerciseHeader/ExerciseHeder';
-// import ExerciseError from './ExerciseError/ExerciseError';
 import ExerciseTableHeader from './ExerciseTable/ExerciseTableHeader';
 import ExerciseTableRow from './ExerciseTable/ExerciseTableRow';
 
 export default function Exercise() {
-	const { exerciseLog, isSuccess, isLoading } = useExerciseLog();
+	const {
+		exerciseLog,
+		isSuccess,
+		isLoading,
+		errorChange,
+		onChangeState,
+		toggleTime,
+		getState
+	} = useExerciseLog();
+
+	const { completedLog, errorCompleted } = useCompleteLog();
 
 	return (
 		<>
@@ -20,7 +31,7 @@ export default function Exercise() {
 				style={{ paddingLeft: 0, paddingRight: 0 }}
 			>
 				<div style={{ width: '90%', margin: '0 auto' }}>
-					{/* <ExerciseError errors={[errorChange, errorCompleted]}/> */}
+					<ExerciseError errors={[errorChange, errorCompleted]} />
 				</div>
 				{isLoading ? (
 					<Loader />
@@ -28,7 +39,13 @@ export default function Exercise() {
 					<div className={styles.wrapper}>
 						<ExerciseTableHeader />
 						{exerciseLog?.times.map((item, index) => (
-							<ExerciseTableRow key={`row-${index}`} item={item} />
+							<ExerciseTableRow
+								key={`row-${index}`}
+								item={item}
+								onChangeState={onChangeState}
+								toggleTime={toggleTime}
+								getState={getState}
+							/>
 						))}
 					</div>
 				)}

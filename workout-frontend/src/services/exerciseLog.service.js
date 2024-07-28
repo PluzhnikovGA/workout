@@ -19,7 +19,7 @@ class ExerciseLogService {
 	}
 
 	// isCompleted
-	async completed(id, body) {
+	async complete(id, body) {
 		return await $axios.patch(`${LOG}/complete/${id}`, body);
 	}
 }
