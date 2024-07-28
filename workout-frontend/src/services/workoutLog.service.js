@@ -13,8 +13,8 @@ class WorkoutLogService {
 		return await $axios.post(`${LOG}/${workoutId}`);
 	}
 
-	async completed(id) {
-		return await $axios.patch(`${LOG}/${id}`);
+	async complete(id) {
+		return await $axios.patch(`${LOG}/complete/${id}`);
 	}
 }
 

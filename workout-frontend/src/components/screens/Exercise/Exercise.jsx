@@ -1,7 +1,6 @@
 import Alert from '../../ui/Alert/Alert';
 import Loader from '../../ui/Loader/Loader';
 
-import useCompleteLog from '../../../hooks/useCompleteLog';
 import useExerciseLog from '../../../hooks/useExerciseLog';
 
 import styles from './Exercise.module.scss';
@@ -15,13 +14,11 @@ export default function Exercise() {
 		exerciseLog,
 		isSuccess,
 		isLoading,
-		errorChange,
+		error,
 		onChangeState,
 		toggleTime,
 		getState
 	} = useExerciseLog();
-
-	const { completedLog, errorCompleted } = useCompleteLog();
 
 	return (
 		<>
@@ -30,9 +27,7 @@ export default function Exercise() {
 				className='wrapper-inner-page'
 				style={{ paddingLeft: 0, paddingRight: 0 }}
 			>
-				<div style={{ width: '90%', margin: '0 auto' }}>
-					<ExerciseError errors={[errorChange, errorCompleted]} />
-				</div>
+				<ExerciseError errors={[error]} />
 				{isLoading ? (
 					<Loader />
 				) : (

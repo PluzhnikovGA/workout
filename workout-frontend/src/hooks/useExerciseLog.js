@@ -11,7 +11,7 @@ export default function useExerciseLog() {
 
 	const [times, setTimes] = useState([]);
 
-	const { updateTime, errorChange } = useUpdateLogTime();
+	const { updateTime, error } = useUpdateLogTime(times);
 
 	const {
 		data: exerciseLog,
@@ -61,7 +61,7 @@ export default function useExerciseLog() {
 			onChangeState,
 			getTime,
 			toggleTime,
-			errorChange,
+			error,
 			getState
 		}),
 		[isLoading, onChangeState, toggleTime]

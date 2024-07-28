@@ -33,7 +33,7 @@
     }
 
     &.completed {
-      background-color: $hard_dark_accent;
+      background-color: rgba($hard_dark_accent, .3);
     }
   }
 
